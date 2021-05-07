@@ -6,4 +6,6 @@ public interface ApiUri {
 
     String TEST = MODULE_URI_PREFIX + "/test";
 
+    String TEST_FEIGN = MODULE_URI_PREFIX + "/testFeign";
+
 }

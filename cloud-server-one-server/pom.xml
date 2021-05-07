@@ -39,6 +39,12 @@
             <artifactId>cloud-server-one-interface</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.self</groupId>
+            <artifactId>cloud-server-two-interface</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
