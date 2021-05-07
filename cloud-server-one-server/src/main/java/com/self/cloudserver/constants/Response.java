@@ -59,10 +59,10 @@ public class Response<T> {
         return res;
     }
 
-    public static Response ok(Object obj){
-        Response res = new Response();
+    public static <T> Response<T> ok(T data){
+        Response<T> res = new Response();
         res.setCode("0000");
-        res.setData(obj);
+        res.setData(data);
         return res;
     }
 
