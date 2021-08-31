@@ -8,6 +8,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.self.cloudserver.exception.CustomizedException;
 import com.self.cloudserver.util.CloudFileUtil;
 import net.anumbrella.seaweedfs.core.file.FileHandleStatus;
+import net.xdevelop.snowflake.SnowflakeUidGenerator;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,6 +22,9 @@ import java.util.List;
 public class TestBiz {
 
     private static final Logger logger = LoggerFactory.getLogger(TestBiz.class);
+
+    @Autowired
+    private SnowflakeUidGenerator snowflakeUidGenerator;
 
     @Autowired
     private CloudFileUtil cloudFileUtil;
