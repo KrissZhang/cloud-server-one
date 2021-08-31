@@ -40,6 +40,35 @@
             <version>${project.version}</version>
         </dependency>
 
+        <!-- seaweedfs -->
+        <dependency>
+            <groupId>net.anumbrella.seaweedfs</groupId>
+            <artifactId>seaweedfs-java-client</artifactId>
+            <version>0.0.2.RELEASE</version>
+        </dependency>
+
+        <!-- commons-lang -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.11</version>
+        </dependency>
+
+        <!-- fastjson -->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.75</version>
+        </dependency>
+
+        <!-- hutool -->
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.7.10</version>
+        </dependency>
+
+        <!-- rpc -->
         <dependency>
             <groupId>com.self</groupId>
             <artifactId>cloud-server-two-interface</artifactId>

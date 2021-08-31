@@ -9,3 +9,9 @@ spring:
 
 # topic
 app.topic.test_record: TEST-RECORD-LOCAL
+
+# seaweedfs
+seaweedfs:
+  host: 10.15.2.41
+  port: 9333
+  use-public: true

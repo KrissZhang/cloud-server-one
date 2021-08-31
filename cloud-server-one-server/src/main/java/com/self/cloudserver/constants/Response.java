@@ -1,6 +1,10 @@
 package com.self.cloudserver.constants;
 
-public class Response<T> {
+import java.io.Serializable;
+
+public class Response<T> implements Serializable {
+
+    private static final long serialVersionUID = 1L;
 
     private String code;
 
@@ -8,7 +12,7 @@ public class Response<T> {
 
     private String msg;
 
-    private T data;
+    private transient T data;
 
     public Response() {
         super();
@@ -53,17 +57,27 @@ public class Response<T> {
         this.data = data;
     }
 
-    public static Response ok(){
-        Response res = new Response();
+    public static <T> Response <T> ok(){
+        Response<T> res = new Response<>();
         res.setCode("0000");
+        res.setTip("成功");
+        res.setMsg("成功");
+
         return res;
     }
 
     public static <T> Response<T> ok(T data){
-        Response<T> res = new Response();
+        Response<T> res = new Response<>();
         res.setCode("0000");
+        res.setTip("成功");
+        res.setMsg("成功");
         res.setData(data);
+
         return res;
+    }
+
+    public static <T> Response <T> addError(String code, String tip){
+        return new Response<>(code, tip, tip, null);
     }
 
 }

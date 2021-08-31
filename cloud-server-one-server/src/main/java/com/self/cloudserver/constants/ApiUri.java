@@ -8,4 +8,8 @@ public interface ApiUri {
 
     String TEST_FEIGN = MODULE_URI_PREFIX + "/testFeign";
 
+    String TEST_UPLOAD_FILE = MODULE_URI_PREFIX + "/testUploadFile";
+
+    String TEST_DOWNLOAD_FILE_CONTENT = MODULE_URI_PREFIX + "/testDownloadFileContent";
+
 }
