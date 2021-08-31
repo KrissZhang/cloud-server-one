@@ -1,5 +1,6 @@
 package com.self.cloudserver.biz;
 
+import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.io.FileUtil;
 import cn.hutool.core.io.IoUtil;
 import com.alibaba.fastjson.JSON;
@@ -14,7 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
+import java.util.List;
 
 @Service
 public class TestBiz {
@@ -49,8 +50,9 @@ public class TestBiz {
         }
 
         InputStream inputStream = cloudFileUtil.getInputStreamByCloudFileId(cloudFileId);
-        String fileContent = IoUtil.read(inputStream, StandardCharsets.UTF_8);
-        result.put("content", fileContent);
+        List<String> contentList = IoUtil.readUtf8Lines(inputStream, CollUtil.newArrayList());
+        String content = CollUtil.join(contentList, "");
+        result.put("content", content);
 
         return result;
     }
