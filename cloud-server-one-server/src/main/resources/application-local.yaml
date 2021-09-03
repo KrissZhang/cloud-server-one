@@ -12,10 +12,6 @@ spring:
     password: 135133
     url: jdbc:mysql://localhost:3306/smart_build_base?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
 
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-
 # topic
 app.topic.test_record: TEST-RECORD-LOCAL
 

@@ -52,3 +52,9 @@ todo:
 short:
   message:
     url: ${SHORT_MESSAGE_HOST:http://183:230:40:74}/tempSignSmsSend
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.self.cloudserver.entity
