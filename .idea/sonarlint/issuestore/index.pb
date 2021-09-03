@@ -13,10 +13,6 @@ p
 @cloud-server-one-interface/.mvn/wrapper/maven-wrapper.properties,e\6\e6e428e929a7dcdfc21f271ffd78d4467c710f1f
 s
 Ccloud-server-one-interface/.mvn/wrapper/MavenWrapperDownloader.java,5\e\5e8a349dd7d9861c8385439aaaf466f40cb795ad
-†
-Vcloud-server-one-server/src/main/java/com/self/cloudserver/CloudserverApplication.java,a\4\a42550bf2f92e722ec5ee344de075e2c17477637
-‹
-[cloud-server-one-server/src/test/java/com/self/cloudserver/CloudserverApplicationTests.java,a\5\a5f1a9993f4c90f52d1d6dba26d41cf7b688f317
 m
 =cloud-server-one-server/.mvn/wrapper/maven-wrapper.properties,3\f\3fdeec08e4acba59cd2c952a2625172bb74d7297
 p
@@ -35,8 +31,6 @@ R
 "cloud-server-one-interface/pom.xml,d\5\d5516d62501b8c28c764fa7091cfdd8f641213ce
 7
 pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
-O
-cloud-server-one-server/pom.xml,7\1\717d0dfe8d2d3051c69894a27608ffc64729b4f4
 ‚
 Rcloud-server-one-server/src/main/java/com/self/cloudserver/constants/Response.java,4\5\459753a3673a31044d49b1407b8e97e831a034ac
 …
