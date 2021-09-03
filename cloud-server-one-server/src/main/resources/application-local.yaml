@@ -6,6 +6,15 @@ spring:
     # 指定默认消费者group id --> 由于在kafka中，同一组中的consumer不会读取到同一个消息，依靠groud.id设置组名
     consumer:
       group-id: cloud-server-local
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: 135133
+    url: jdbc:mysql://localhost:3306/smart_build_base?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 # topic
 app.topic.test_record: TEST-RECORD-LOCAL
