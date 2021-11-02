@@ -25,7 +25,7 @@ class CloudserverApplicationTests {
 
     @Test
     void contextLoads() {
-        QueryWrapper<Role> queryWrapper = new QueryWrapper();
+        QueryWrapper<Role> queryWrapper = new QueryWrapper<>();
         queryWrapper.gt("id", 1);
         List<Role> roleList = roleIService.list(queryWrapper);
         for (Role role : roleList) {
