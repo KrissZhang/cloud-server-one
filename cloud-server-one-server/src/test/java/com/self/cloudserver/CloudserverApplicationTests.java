@@ -3,7 +3,7 @@ package com.self.cloudserver;
 import com.alibaba.fastjson.JSON;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.self.cloudserver.entity.Role;
-import com.self.cloudserver.mapper.RoleMapper;
+import com.self.cloudserver.iservice.RoleIService;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +19,7 @@ import java.util.List;
 class CloudserverApplicationTests {
 
     @Autowired
-    private RoleMapper roleMapper;
+    private RoleIService roleIService;
 
     private static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
@@ -27,7 +27,7 @@ class CloudserverApplicationTests {
     void contextLoads() {
         QueryWrapper<Role> queryWrapper = new QueryWrapper();
         queryWrapper.gt("id", 1);
-        List<Role> roleList = roleMapper.selectList(queryWrapper);
+        List<Role> roleList = roleIService.list(queryWrapper);
         for (Role role : roleList) {
             System.out.println(JSON.toJSONString(role));
         }
