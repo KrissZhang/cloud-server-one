@@ -1,10 +1,14 @@
 package com.self.cloudserver.api.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.self.cloudserver.biz.TestBiz;
+import com.self.cloudserver.config.AppContext;
 import com.self.cloudserver.constants.ApiUri;
 import com.self.cloudserver.constants.Response;
+import com.self.cloudserver.constants.ResultEntity;
 import com.self.cloudserver.dto.KafkaCommonReq;
+import com.self.cloudserver.entity.TestBean;
 import com.self.cloudserver.kafka.producer.RecordKafkaProducer;
 import com.self.cloudserver.rpc.feign.TestFeign;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,6 +48,16 @@ public class TestController {
     @GetMapping(ApiUri.TEST_DOWNLOAD_FILE_CONTENT)
     public Response<JSONObject> testDownloadFileContent(@RequestParam String cloudFileId){
         return Response.ok(testBiz.testDownloadFileContent(cloudFileId));
+    }
+
+    @GetMapping(ApiUri.TEST_APX)
+    public ResultEntity<JSONObject> testApx(){
+        TestBean testBean = AppContext.getBean(TestBean.class);
+        testBean.setId(1L);
+        testBean.setName("testBean");
+        testBean.setValue("testBean");
+
+        return ResultEntity.ok(JSON.parseObject(JSON.toJSONString(testBean)));
     }
 
 }

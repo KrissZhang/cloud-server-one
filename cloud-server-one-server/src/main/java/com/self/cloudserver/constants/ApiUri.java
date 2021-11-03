@@ -12,4 +12,6 @@ public interface ApiUri {
 
     String TEST_DOWNLOAD_FILE_CONTENT = MODULE_URI_PREFIX + "/testDownloadFileContent";
 
+    String TEST_APX = MODULE_URI_PREFIX + "/testApx";
+
 }
