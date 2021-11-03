@@ -46,6 +46,12 @@
             <artifactId>spring-boot-starter-data-redis</artifactId>
         </dependency>
 
+        <!-- session -->
+        <dependency>
+            <groupId>org.springframework.session</groupId>
+            <artifactId>spring-session-data-redis</artifactId>
+        </dependency>
+
         <!-- seaweedfs -->
         <dependency>
             <groupId>net.anumbrella.seaweedfs</groupId>
