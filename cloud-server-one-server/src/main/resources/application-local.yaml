@@ -11,6 +11,10 @@ spring:
     username: root
     password: 135133
     url: jdbc:mysql://localhost:3306/smart_build_base?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+  redis:
+    host: ${REDIS_HOST:10.12.2.64}
+    password: ${REDIS_PASSWORD:sy_202106}
+    port: 6379
 
 # topic
 app.topic.test_record: TEST-RECORD-LOCAL
