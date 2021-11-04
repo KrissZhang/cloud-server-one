@@ -19,4 +19,9 @@ public final class CommonConstants {
      */
     public static final String STR_POINT = ".";
 
+    /**
+     * Token Header名称
+     */
+    public static final String TOKEN_HEADER_KEY = "access_token";
+
 }
