@@ -7,8 +7,6 @@ L
 cloud-server-one-server/mvnw,5\7\5789d4f7cf27ca5dd3af3d50f0a383e1feefe018
 P
  cloud-server-one-server/mvnw.cmd,d\c\dcaa657b5759e4a73f27cea3bb8f24c3928805a8
-é
-^cloud-server-one-interface/src/test/java/com/self/cloudserver/CloudserverApplicationTests.java,0\b\0bc15706e9263bb958b13853d73e1ab44278e117
 p
 @cloud-server-one-interface/.mvn/wrapper/maven-wrapper.properties,e\6\e6e428e929a7dcdfc21f271ffd78d4467c710f1f
 s
@@ -23,14 +21,10 @@ O
 cloud-server-one-interface/mvnw,c\6\c6d35a7587913fd19cbed379b79c0c78cbcd2456
 S
 #cloud-server-one-interface/mvnw.cmd,0\c\0cd2d0d9e68773538f31914775bf54c19fc11c98
-â
-Ycloud-server-one-interface/src/main/java/com/self/cloudserver/CloudserverApplication.java,8\c\8c972f054468eff9d70796903e5308076e1c586e
 9
 	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
 R
 "cloud-server-one-interface/pom.xml,d\5\d5516d62501b8c28c764fa7091cfdd8f641213ce
-7
-pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
 Ç
 Rcloud-server-one-server/src/main/java/com/self/cloudserver/constants/Response.java,4\5\459753a3673a31044d49b1407b8e97e831a034ac
 Ö
@@ -39,7 +33,3 @@ Ucloud-server-one-interface/src/main/java/com/self/cloudserver/dto/KafkaCommonRe
 `cloud-server-one-interface/src/main/java/com/self/cloudserver/kafka/constants/TopicConstant.java,0\4\04f4d8bd97045c0e43d1e11df36354c5a9a8031d
 ï
 ecloud-server-one-interface/src/main/java/com/self/cloudserver/kafka/producer/RecordKafkaProducer.java,4\1\417254d8efc9aef2ffa2078e0dad699cb95ebe92
-Ä
-Pcloud-server-one-server/src/main/java/com/self/cloudserver/constants/ApiUri.java,5\1\5110af8553a588ce15630e18e079b977d8f35fc2
-ç
-]cloud-server-one-server/src/main/java/com/self/cloudserver/api/controller/TestController.java,5\6\56e53669885d1dd3d77761d5d9415fe87d1ba8a5

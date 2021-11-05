@@ -14,4 +14,6 @@ public interface ApiUri {
 
     String TEST_APX = MODULE_URI_PREFIX + "/testApx";
 
+    String TEST_WEBSERVICE = MODULE_URI_PREFIX + "/testWebService";
+
 }

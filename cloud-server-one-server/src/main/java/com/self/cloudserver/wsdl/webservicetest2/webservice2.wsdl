@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8'?><wsdl:definitions xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://webservice.cloudserver.self.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns2="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="http://webservice.cloudserver.self.com/" name="WebServiceTestService2" targetNamespace="http://webservice.cloudserver.self.com">
+  <wsdl:import location="http://127.0.0.1:8081/webservice/webservice2?wsdl=WebServiceTestService2.wsdl" namespace="http://webservice.cloudserver.self.com/">
+    </wsdl:import>
+  <wsdl:binding name="WebServiceTestService2SoapBinding" type="ns1:WebServiceTestService2">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="testWebService2">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="testWebService2">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="testWebService2Response">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebServiceTestService2">
+    <wsdl:port binding="tns:WebServiceTestService2SoapBinding" name="WebServiceTestServiceImpl2Port">
+      <soap:address location="http://127.0.0.1:8081/webservice/webservice2"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

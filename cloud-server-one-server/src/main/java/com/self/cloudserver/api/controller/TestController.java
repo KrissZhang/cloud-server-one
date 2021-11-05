@@ -11,6 +11,10 @@ import com.self.cloudserver.dto.KafkaCommonReq;
 import com.self.cloudserver.entity.TestBean;
 import com.self.cloudserver.kafka.producer.RecordKafkaProducer;
 import com.self.cloudserver.rpc.feign.TestFeign;
+import com.self.cloudserver.wsdl.webservicetest.WebServiceTestService;
+import com.self.cloudserver.wsdl.webservicetest.WebServiceTestService_Service;
+import com.self.cloudserver.wsdl.webservicetest2.WebServiceTestService2;
+import com.self.cloudserver.wsdl.webservicetest2.WebServiceTestService2_Service;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,6 +70,26 @@ public class TestController {
         testBean.setValue("testBean");
 
         return ResultEntity.ok(JSON.parseObject(JSON.toJSONString(testBean)));
+    }
+
+    @ApiOperation(value = "测试WebService", notes = "测试WebService")
+    @GetMapping(ApiUri.TEST_WEBSERVICE)
+    public ResultEntity<Object> testWebService(@RequestParam String req){
+        WebServiceTestService_Service webServiceTestService_Service = new WebServiceTestService_Service();
+        WebServiceTestService webServiceTestService = webServiceTestService_Service.getWebServiceTestServiceImplPort();
+
+        String result = webServiceTestService.testWebService(req);
+
+        WebServiceTestService2_Service webServiceTestService2_Service = new WebServiceTestService2_Service();
+        WebServiceTestService2 webServiceTestService2 = webServiceTestService2_Service.getWebServiceTestServiceImpl2Port();
+
+        String result2 = webServiceTestService2.testWebService2(req);
+
+        JSONObject object = new JSONObject();
+        object.put("result", result);
+        object.put("result2", result2);
+
+        return ResultEntity.ok(JSON.toJSONString(object));
     }
 
 }
