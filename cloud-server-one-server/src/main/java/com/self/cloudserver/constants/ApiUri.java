@@ -16,4 +16,6 @@ public interface ApiUri {
 
     String TEST_WEBSERVICE = MODULE_URI_PREFIX + "/testWebService";
 
+    String TEST_EVENT = MODULE_URI_PREFIX + "/testEvent";
+
 }

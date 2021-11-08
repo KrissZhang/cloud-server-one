@@ -9,6 +9,7 @@ import com.self.cloudserver.constants.Response;
 import com.self.cloudserver.constants.ResultEntity;
 import com.self.cloudserver.dto.KafkaCommonReq;
 import com.self.cloudserver.entity.TestBean;
+import com.self.cloudserver.event.publisher.TestPublisher;
 import com.self.cloudserver.kafka.producer.RecordKafkaProducer;
 import com.self.cloudserver.rpc.feign.TestFeign;
 import com.self.cloudserver.wsdl.webservicetest.WebServiceTestService;
@@ -31,6 +32,9 @@ public class TestController {
 
     @Autowired
     private RecordKafkaProducer recordKafkaProducer;
+
+    @Autowired
+    private TestPublisher testPublisher;
 
     @Autowired
     private TestBiz testBiz;
@@ -90,6 +94,16 @@ public class TestController {
         object.put("result2", result2);
 
         return ResultEntity.ok(JSON.toJSONString(object));
+    }
+
+    @ApiOperation(value = "测试Event", notes = "测试Event")
+    @GetMapping(ApiUri.TEST_EVENT)
+    public ResultEntity<Object> testEvent(@RequestParam String req){
+        testPublisher.publishTestEvent1(req);
+
+        testPublisher.publishTestEvent2(req);
+
+        return ResultEntity.ok();
     }
 
 }
