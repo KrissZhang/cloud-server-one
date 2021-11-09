@@ -4,11 +4,11 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeanWrapper;
 import org.springframework.beans.BeanWrapperImpl;
+import org.springframework.util.CollectionUtils;
 
 import java.beans.PropertyDescriptor;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class BeanUtil {
 
@@ -42,6 +42,14 @@ public class BeanUtil {
 
         String[] notNullField = new String[notNullFieldSet.size()];
         return notNullFieldSet.toArray(notNullField);
+    }
+
+    public static <E, T> List<E> copyList(List<T> srcList, Class<E> tClass) {
+        if (CollectionUtils.isEmpty(srcList)) {
+            return Collections.emptyList();
+        }
+
+        return srcList.stream().map(source -> copyNullProperties(source, tClass)).collect(Collectors.toList());
     }
 
 }
