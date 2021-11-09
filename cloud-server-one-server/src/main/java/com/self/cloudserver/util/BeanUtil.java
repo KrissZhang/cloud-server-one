@@ -12,8 +12,18 @@ import java.util.Set;
 
 public class BeanUtil {
 
-    public static void copyNullProperties(Object source, Object target) {
-        BeanUtils.copyProperties(source, target, getNullField(source));
+    public static <T> T copyNullProperties(Object source, Class<T> tClass) {
+        try{
+            if(source == null){
+                return null;
+            }
+
+            T instance = tClass.newInstance();
+            BeanUtils.copyProperties(source, instance, getNullField(source));
+            return instance;
+        }catch (Exception e){
+            return null;
+        }
     }
 
     private static String[] getNullField(Object target) {
