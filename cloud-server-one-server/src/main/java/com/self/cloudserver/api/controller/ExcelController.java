@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
@@ -63,6 +64,17 @@ public class ExcelController {
             ExcelUtil.exportToWeb(response, "Excel测试实体表", "测试实体", Element.class, list);
         }catch (Exception e){
             logger.error("导出异常：", e);
+        }
+    }
+
+    @ApiOperation(value = "测试将指定位置的Excel导出到web", notes = "测试将指定位置的Excel导出到web")
+    @GetMapping(ApiUri.TEST_EXPORTTOWEBFILE)
+    public ResultEntity<Object> exportToWebFile(HttpServletResponse response, @RequestParam String excelName){
+        try{
+            return ExcelUtil.exportToWebFile(response, path, excelName);
+        }catch (Exception e){
+            logger.error("导出异常：", e);
+            return ResultEntity.addError("500", e.getMessage());
         }
     }
 

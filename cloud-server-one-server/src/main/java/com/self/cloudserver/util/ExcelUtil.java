@@ -2,6 +2,7 @@ package com.self.cloudserver.util;
 
 import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.support.ExcelTypeEnum;
+import com.self.cloudserver.constants.ResultEntity;
 import org.apache.commons.io.IOUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,10 +58,10 @@ public class ExcelUtil {
      * @return
      * @throws UnsupportedEncodingException
      */
-    public static String exportToWebFile(HttpServletResponse response, String path, String excelName) throws UnsupportedEncodingException {
+    public static ResultEntity<Object> exportToWebFile(HttpServletResponse response, String path, String excelName) throws UnsupportedEncodingException {
         File file = new File(path.concat(excelName).concat(ExcelTypeEnum.XLSX.getValue()));
         if (!file.exists()) {
-            return "文件不存在！";
+            return ResultEntity.addError("500", "文件不存在");
         }
 
         response.setContentType("application/vnd.ms-excel");
@@ -74,12 +75,11 @@ public class ExcelUtil {
                 ServletOutputStream out = response.getOutputStream();
         ) {
             IOUtils.copy(in, out);
-            return "导出成功！";
+            return ResultEntity.ok("导出成功");
         } catch (Exception e) {
             logger.error("导出文件异常：", e);
+            return ResultEntity.addError("500", e.getMessage());
         }
-
-        return "导出失败！";
     }
 
 }
