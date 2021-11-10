@@ -20,4 +20,6 @@ public interface ApiUri {
 
     String TEST_EXPORT2FILE = MODULE_URI_PREFIX + "/export2File";
 
+    String TEST_EXPORT2WEB = MODULE_URI_PREFIX + "/export2Web";
+
 }

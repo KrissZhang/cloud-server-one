@@ -7,16 +7,21 @@ import com.self.cloudserver.dto.excel.Element;
 import com.self.cloudserver.util.ExcelUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Date;
 import java.util.List;
 
 @Api(value = "Excel管理", tags = "Excel管理")
 @RestController
 public class ExcelController {
+
+    private static final Logger logger = LoggerFactory.getLogger(ExcelController.class);
 
     @Value("${excel.path}")
     private String path;
@@ -47,6 +52,18 @@ public class ExcelController {
         ExcelUtil.export2File(path, "Excel测试实体表", "测试实体", Element.class, list);
 
         return ResultEntity.ok();
+    }
+
+    @ApiOperation(value = "测试导出Excel到web", notes = "测试导出Excel到web")
+    @GetMapping(ApiUri.TEST_EXPORT2WEB)
+    public void export2Web(HttpServletResponse response){
+        List<Element> list = buildData();
+
+        try{
+            ExcelUtil.export2Web(response, "Excel测试实体表", "测试实体", Element.class, list);
+        }catch (Exception e){
+            logger.error("导出异常：", e);
+        }
     }
 
 }
