@@ -45,22 +45,22 @@ public class ExcelController {
     }
 
     @ApiOperation(value = "测试导出Excel到指定路径", notes = "测试导出Excel到指定路径")
-    @GetMapping(ApiUri.TEST_EXPORT2FILE)
-    public ResultEntity<Object> export2File(){
+    @GetMapping(ApiUri.TEST_EXPORTTOFILE)
+    public ResultEntity<Object> exportToFile(){
         List<Element> list = buildData();
 
-        ExcelUtil.export2File(path, "Excel测试实体表", "测试实体", Element.class, list);
+        ExcelUtil.exportToFile(path, "Excel测试实体表", "测试实体", Element.class, list);
 
         return ResultEntity.ok();
     }
 
     @ApiOperation(value = "测试导出Excel到web", notes = "测试导出Excel到web")
-    @GetMapping(ApiUri.TEST_EXPORT2WEB)
-    public void export2Web(HttpServletResponse response){
+    @GetMapping(ApiUri.TEST_EXPORTTOWEB)
+    public void exportToWeb(HttpServletResponse response){
         List<Element> list = buildData();
 
         try{
-            ExcelUtil.export2Web(response, "Excel测试实体表", "测试实体", Element.class, list);
+            ExcelUtil.exportToWeb(response, "Excel测试实体表", "测试实体", Element.class, list);
         }catch (Exception e){
             logger.error("导出异常：", e);
         }

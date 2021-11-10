@@ -18,8 +18,8 @@ public interface ApiUri {
 
     String TEST_EVENT = MODULE_URI_PREFIX + "/testEvent";
 
-    String TEST_EXPORT2FILE = MODULE_URI_PREFIX + "/export2File";
+    String TEST_EXPORTTOFILE = MODULE_URI_PREFIX + "/exportToFile";
 
-    String TEST_EXPORT2WEB = MODULE_URI_PREFIX + "/export2Web";
+    String TEST_EXPORTTOWEB = MODULE_URI_PREFIX + "/exportToWeb";
 
 }

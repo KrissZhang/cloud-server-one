@@ -26,7 +26,7 @@ public class ExcelUtil {
      * @param tClass    Excel要转换的类型
      * @param data      要导出的数据
      */
-    public static void export2File(String path, String excelName, String sheetName, Class tClass, List data) {
+    public static void exportToFile(String path, String excelName, String sheetName, Class tClass, List data) {
         String fileName = path.concat(excelName).concat(ExcelTypeEnum.XLSX.getValue());
         EasyExcel.write(fileName, tClass).sheet(sheetName).doWrite(data);
     }
@@ -40,7 +40,7 @@ public class ExcelUtil {
      * @param data      要导出的数据
      * @throws Exception Exception
      */
-    public static void export2Web(HttpServletResponse response, String excelName, String sheetName, Class tClass, List data) throws Exception {
+    public static void exportToWeb(HttpServletResponse response, String excelName, String sheetName, Class tClass, List data) throws Exception {
         response.setContentType("application/vnd.ms-excel");
         response.setCharacterEncoding("utf-8");
         //这里URLEncoder.encode可以防止中文乱码
@@ -57,7 +57,7 @@ public class ExcelUtil {
      * @return
      * @throws UnsupportedEncodingException
      */
-    public static String export2Web4File(HttpServletResponse response, String path, String excelName) throws UnsupportedEncodingException {
+    public static String exportToWebFile(HttpServletResponse response, String path, String excelName) throws UnsupportedEncodingException {
         File file = new File(path.concat(excelName).concat(ExcelTypeEnum.XLSX.getValue()));
         if (!file.exists()) {
             return "文件不存在！";
