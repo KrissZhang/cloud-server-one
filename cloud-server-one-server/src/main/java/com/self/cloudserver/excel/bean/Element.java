@@ -1,8 +1,10 @@
-package com.self.cloudserver.dto.excel;
+package com.self.cloudserver.excel.bean;
 
 import com.alibaba.excel.annotation.ExcelIgnore;
 import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.format.DateTimeFormat;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 
 import java.util.Date;
 
@@ -12,6 +14,7 @@ import java.util.Date;
 public class Element {
 
     @ExcelIgnore
+    @TableId(type = IdType.AUTO)
     private Long id;
 
     @ExcelProperty(value = "测试名称", index = 0)

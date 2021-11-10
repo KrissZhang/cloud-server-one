@@ -24,4 +24,6 @@ public interface ApiUri {
 
     String TEST_EXPORTTOWEBFILE = MODULE_URI_PREFIX + "/exportToWebFile";
 
+    String TEST_READANDSAVEEXCELDATA = MODULE_URI_PREFIX + "/readAndSaveExcelData";
+
 }

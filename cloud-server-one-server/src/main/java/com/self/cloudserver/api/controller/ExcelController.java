@@ -1,14 +1,19 @@
 package com.self.cloudserver.api.controller;
 
+import com.alibaba.excel.EasyExcel;
+import com.alibaba.excel.support.ExcelTypeEnum;
 import com.google.common.collect.Lists;
 import com.self.cloudserver.constants.ApiUri;
 import com.self.cloudserver.constants.ResultEntity;
-import com.self.cloudserver.dto.excel.Element;
+import com.self.cloudserver.excel.bean.Element;
+import com.self.cloudserver.excel.listener.ElementDataListener;
+import com.self.cloudserver.iservice.ElementIService;
 import com.self.cloudserver.util.ExcelUtil;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -26,6 +31,9 @@ public class ExcelController {
 
     @Value("${excel.path}")
     private String path;
+
+    @Autowired
+    private ElementIService elementIService;
 
     private List<Element> buildData(){
         List<Element> dataList = Lists.newArrayList();
@@ -76,6 +84,15 @@ public class ExcelController {
             logger.error("导出异常：", e);
             return ResultEntity.addError("500", e.getMessage());
         }
+    }
+
+    @ApiOperation(value = "测试读取Excel文件并存库", notes = "测试读取Excel文件并存库")
+    @GetMapping(ApiUri.TEST_READANDSAVEEXCELDATA)
+    public ResultEntity<Object> readAndSaveExcelData(@RequestParam String excelName){
+        String fileName = path.concat(excelName).concat(ExcelTypeEnum.XLSX.getValue());
+        EasyExcel.read(fileName, Element.class, new ElementDataListener(elementIService)).sheet().doRead();
+
+        return ResultEntity.ok();
     }
 
 }
