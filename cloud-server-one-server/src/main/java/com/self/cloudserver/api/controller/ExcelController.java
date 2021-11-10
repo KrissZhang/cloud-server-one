@@ -16,10 +16,13 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -91,6 +94,14 @@ public class ExcelController {
     public ResultEntity<Object> readAndSaveExcelData(@RequestParam String excelName){
         String fileName = path.concat(excelName).concat(ExcelTypeEnum.XLSX.getValue());
         EasyExcel.read(fileName, Element.class, new ElementDataListener(elementIService)).sheet().doRead();
+
+        return ResultEntity.ok();
+    }
+
+    @ApiOperation(value = "测试上传Excel文件并存库", notes = "测试上传Excel文件并存库")
+    @PostMapping(ApiUri.TEST_UPLOADANDSAVEEXCELDATA)
+    public ResultEntity<Object> uploadAndSaveExcelData(MultipartFile multipartFile) throws IOException {
+        EasyExcel.read(multipartFile.getInputStream(), Element.class, new ElementDataListener(elementIService)).sheet().doRead();
 
         return ResultEntity.ok();
     }

@@ -26,4 +26,6 @@ public interface ApiUri {
 
     String TEST_READANDSAVEEXCELDATA = MODULE_URI_PREFIX + "/readAndSaveExcelData";
 
+    String TEST_UPLOADANDSAVEEXCELDATA = MODULE_URI_PREFIX + "/uploadAndSaveExcelData";
+
 }
