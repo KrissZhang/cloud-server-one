@@ -24,3 +24,7 @@ seaweedfs:
   host: 10.15.2.41
   port: 9333
   use-public: true
+
+# 本地excel路径
+excel:
+  path: D:/excel/
